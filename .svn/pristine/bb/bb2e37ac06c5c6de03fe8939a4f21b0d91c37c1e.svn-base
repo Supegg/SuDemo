@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<order>
+  <!--工单名-->
+  <name>flc123abc-_</name>
+  <swVer>1.01.01</swVer>
+
+  <!--
+  imei前8位固定分配，后6位BCD十进制
+  制作工单时，current=start
+  -->
+  <imei>
+    <start>
+      86780802000000
+    </start>
+    <end>
+      86780802000199
+    </end>
+    <current>
+      86780802000000
+    </current>
+  </imei>
+  <!--
+  meid前8位固定分配，后6位BCD十进制
+  制作工单时，current=start
+  -->
+  <meid>
+    <start>
+      99000653000000
+    </start>
+    <end>
+      99000653000199
+    </end>
+    <current>
+      99000653000000
+    </current>
+  </meid>
+
+  <!--
+  保留，暂时不做使用
+  -->
+  <sn>
+    <start>
+      LMCM63MF520A0081
+    </start>
+    <end>
+      LMCM63MF520A0081
+    </end>
+    <current>
+      LMCM63MF520A0081
+    </current>
+  </sn>
+</order>

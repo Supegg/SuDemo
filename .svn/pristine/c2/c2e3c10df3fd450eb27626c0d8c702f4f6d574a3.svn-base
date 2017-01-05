@@ -1,0 +1,41 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO.Ports;
+using System.Threading;
+
+namespace SuUtil
+{
+    public class Util
+    {
+        /// <summary>
+        /// test wheather com is ready
+        /// </summary>
+        /// <param name="com"></param>
+        /// <param name="retry">default 30 second</param>
+        /// <returns></returns>
+        public static bool IsComReady(string com,int retry = 30)
+        {
+            SerialPort port = new SerialPort(com);
+
+            do
+            {
+                try
+                {
+                    Thread.Sleep(1000);
+                    port.Open();
+                    port.Close();
+                    Logger.Bard(string.Format("The retry for {0} of {1} time(s) successed", com, retry));
+                    return true;
+                }
+                catch
+                {
+                    Logger.Bard(string.Format("The retry for {0} of {1} time(s) failed", com, retry));
+                }
+            } while (--retry>0);
+            
+            return false;
+        }
+    }
+}

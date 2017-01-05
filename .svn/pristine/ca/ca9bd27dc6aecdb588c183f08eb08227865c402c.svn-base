@@ -1,0 +1,15 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace SuUtil
+{
+    public class AssemblyInfo
+    {
+        public const string Version = "V1.0.5";
+        public readonly static DateTime ReleaseDate = new DateTime(2015, 8, 19);
+        public const string Author = "Supegg.Rao";
+        public static string AppPath = null;//init when app starts
+    }
+}

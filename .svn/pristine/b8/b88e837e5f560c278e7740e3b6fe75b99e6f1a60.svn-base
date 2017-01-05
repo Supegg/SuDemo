@@ -1,0 +1,27 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using SuUtil;
+
+namespace SuDemo
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string s = "hehheh11111111111111111111111111111111111111111111111111111111111111111111";
+            byte[] bs= Encoding.UTF8.GetBytes(s);
+            
+
+            bs = SuEncipher.Encipher(bs);
+            bs  = SuEncipher.Decipher(bs);
+            string s1 = Encoding.UTF8.GetString(bs);
+
+            bs=SuEncipher.Encipher(bs);
+            bs=SuEncipher.Decipher(bs);
+            string s2 = Encoding.UTF8.GetString(bs); 
+
+        }
+    }
+}

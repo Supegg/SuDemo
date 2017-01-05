@@ -1,0 +1,18 @@
+﻿
+        foreach(var f in Directory.GetFiles(@"E:\Flair\Lte"))
+        {
+            testMd5(f);
+        }
+
+        private static void testMd5(string file)
+        {
+            string hash = Md5Helper.Md5Encrypt(file);
+            Console.WriteLine("Hash:\t{0}", hash); 
+            XDocument doc = XDocument.Load("hash.xml");
+            doc.Element("root").Value = hash;
+            doc.Save("hash.xml");
+            
+            doc = XDocument.Load("hash.xml");
+            hash = doc.Element("root").Value;
+            Console.WriteLine("Checked:\t{0}", Md5Helper.Md5Check(file, hash));
+        }

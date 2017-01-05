@@ -1,0 +1,82 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management;
+using System.Text;
+
+namespace SuUtil
+{
+    /// <summary>
+    /// static util method
+    /// </summary>
+    public class PcInfo
+    {
+        private static string mac = null;//network card mac address
+        private static string cpuId = null;//cpu序列号 
+
+        /// <summary>
+        /// get network card mac address
+        /// this item can be edited
+        /// </summary>
+        /// <returns></returns>
+        public static string GetMacAddress()
+        {
+            if (mac != null)
+            {
+                return mac;
+            }
+
+            using (ManagementClass mc = new ManagementClass("Win32_NetworkAdapterConfiguration"))
+            {
+                using (ManagementObjectCollection moc = mc.GetInstances())
+                {
+                    foreach (ManagementObject mo in moc)
+                    {
+                        if ((bool)mo["IPEnabled"] == true)
+                        {
+                            mac = mo["MacAddress"].ToString();
+                            break;
+                        }
+                    }
+                }
+            }
+            if(mac==null)
+            {
+                throw new Exception("Get local pc's mac address failed.");
+            }
+
+            return mac.ToUpper();
+        }
+
+        /// <summary>
+        /// get cpu id 
+        /// nonuniqueness
+        /// </summary>
+        /// <returns></returns>
+        public static string GetCpuID()
+        {
+            if (cpuId != null)
+            {
+                return cpuId;
+            }
+
+            using (ManagementClass mc = new ManagementClass("Win32_Processor"))
+            {
+                using (ManagementObjectCollection moc = mc.GetInstances())
+                {
+                    foreach (ManagementObject mo in moc)
+                    {
+                        cpuId = mo.Properties["ProcessorId"].Value.ToString();
+                        break;
+                    }
+                }
+            }
+            if (cpuId == null)
+            {
+                throw new Exception("Get cpu id failed.");
+            }
+
+            return cpuId.ToUpper();
+        }
+    }
+}

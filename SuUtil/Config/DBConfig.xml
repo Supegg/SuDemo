@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<config>
+  <mssql>Initial Catalog=SuCombo;Data Source=127.0.0.1;User ID=sa;password=123456;Connect Timeout=5</mssql>
+  <oracle>
+    Data Source=(DESCRIPTION =
+    (ADDRESS_LIST =
+    (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.10.10)(PORT = 1521))
+    )
+    (CONNECT_DATA =
+    (SID = ORCL)
+    (SERVER = DEDICATED)
+    )
+    );User Id=FLAIRADMIN;Password=FLAIRADMIN;
+  </oracle>
+  <oleString>Password=111111;User ID=AAMS;Data Source=ORCL;Persist Security Info=True</oleString>
+</config>

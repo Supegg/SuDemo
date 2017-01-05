@@ -1,0 +1,36 @@
+﻿<Window x:Class="SuCreaetor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Creator="clr-namespace:SuCreaetor.Creator"
+        Title="FLC-SuCreator-生产文件加密工具" Height="600" Width="800" Icon="logo.ico">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Label Content="FLC生产文件加密工具" FontSize="24" Grid.Column="1" HorizontalAlignment="Center" Margin="0,0" VerticalAlignment="Center"/>
+        <DockPanel Grid.Column="1" Grid.Row="1" LastChildFill="True">
+            <TabControl>
+                <TabItem Header="BDS">
+                    <Grid Background="#FFE5E5E5">
+                        <Creator:UCbds/>
+                    </Grid>
+
+                </TabItem>
+                <TabItem Header="LTE" IsSelected="True" Height="23" VerticalAlignment="Bottom">
+                    <Grid Background="#FFE5E5E5">
+                        <Creator:UClte/>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+
+        </DockPanel>
+
+    </Grid>
+</Window>

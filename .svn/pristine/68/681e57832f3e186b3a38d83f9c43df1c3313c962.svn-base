@@ -1,0 +1,3 @@
+[config]
+useLog=1
+file=su.log
